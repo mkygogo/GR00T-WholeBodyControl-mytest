@@ -1,3 +1,26 @@
+为了减少git仓库大小，有几个目录没上传，要直接拷贝官方的
+decoupled_wbc/
+docs/
+media/
+external_dependencies/
+gear_sonic_deploy/thirdparty/
+gear_sonic/data/
+gear_sonic/trl/utils/smplx/body_model/
+gear_sonic_deploy/g1/images/
+gear_sonic_deploy/g1/meshes/
+gear_sonic_deploy/reference/
+
+
+添加了网页上直接控制双臂的功能
+添加了：gear_sonic/web_teleop_server.py
+对应的网页端参考相应仓库
+前两个终端按照keyboard教程启动
+第三个终端用的也是sim的环境：source .venv_sim/bin/activate
+安装两个库:uv pip install websockets zmq
+运行：python gear_sonic/scripts/web_teleop_server.py
+仿真器里按9，就可以控制了
+
+
 <div align="center">
 
   <img src="media/groot_wbc.png" width="800" alt="GEAR SONIC Header">
