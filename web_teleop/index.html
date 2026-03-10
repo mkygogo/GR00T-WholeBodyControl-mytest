@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G1 Robot 7-DoF Arms Controller</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #1a1a1a; color: #fff; font-family: sans-serif; }
+        canvas { display: block; }
+        .ui-panel {
+            position: absolute;
+            top: 20px;
+            width: 300px;
+            background: rgba(20, 20, 20, 0.85);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+        #left-ui { left: 20px; }
+        #right-ui { right: 20px; }
+        h3 { margin-top: 0; text-align: center; border-bottom: 1px solid #444; padding-bottom: 10px; color: #eee;}
+        .slider-group { margin-bottom: 12px; }
+        .slider-group label { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px; color: #aaa;}
+        input[type=range] { width: 100%; cursor: pointer; }
+        .val-display { color: #00ffcc; font-weight: bold; width: 45px; text-align: right;}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="left-ui" class="ui-panel">
+        <h3>Left Arm (G1 FK)</h3>
+        <div id="left-sliders"></div>
+    </div>
+
+    <div id="right-ui" class="ui-panel">
+        <h3>Right Arm (G1 FK)</h3>
+        <div id="right-sliders"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

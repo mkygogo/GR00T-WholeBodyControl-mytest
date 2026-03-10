@@ -12,14 +12,39 @@ gear_sonic_deploy/reference/
 
 
 添加了网页上直接控制双臂的功能  
-添加了：gear_sonic/web_teleop_server.py  
-对应的网页端参考相应仓库  
-前两个终端按照keyboard教程启动  
-第三个终端用的也是sim的环境：source .venv_sim/bin/activate  
-安装两个库:uv pip install websockets zmq  
-运行：python gear_sonic/scripts/web_teleop_server.py  
-仿真器里按9，就可以控制了  
+添加了摇操臂控制  
+添加代码：  
+- gear_sonic/web_teleop_server.py  
+- gear_sonic/mocap_teleop_server.py
+  
+# 根据官方文档安装
+# 网页控制双臂 
+## 1:启动Mujoco仿真  
+在第一个终端进入sonic目录，执行命令：  
+source .venv_sim/bin/activate  
+python gear_sonic/scripts/run_sim_loop.py  
+启动后机器人在仿真环境吊起状态。  
+## 2:启动ZMQ控制
+打开第二个终端进入sonic/gear_sonic_deploy目录,直接运行：  
+bash deploy.sh sim --input-type zmq_manager  
 
+## 3:启动我们添加的网页控制功能  
+第三个终端用的也是sim的环境：source .venv_sim/bin/activate  
+如果报错，安装两个库:uv pip install websockets zmq  
+运行：python gear_sonic/scripts/web_teleop_server.py  
+这个时候仿真环境里的机器人开始乱动，在MuJoco的界面里按9，机器人就站立了
+
+## 4：启动网页端：  
+打开第四个终端，进入web_teleop目录  
+启动http服务：python3 -m http.server 8080  
+浏览器打开x.x.x.x:8080  
+
+# 摇操臂控制
+USB链接摇操臂，注意USB端口跟代码里是否一样，以及端口权限。  
+## 1,2 前两步参考网页控制
+## 3 启动摇操臂脚本  
+uv pip install dynamixel_sdk  
+python gear_sonic/scripts/mocap_teleop_server.py  
 
 <div align="center">
 
@@ -52,6 +77,15 @@ This is the codebase for the **GR00T Whole-Body Control (WBC)** projects. It hos
 
 ## Table of Contents
 
+- [根据官方文档安装](#根据官方文档安装)
+- [网页控制双臂](#网页控制双臂)
+  - [1:启动Mujoco仿真](#1启动mujoco仿真)
+  - [2:启动ZMQ控制](#2启动zmq控制)
+  - [3:启动我们添加的网页控制功能](#3启动我们添加的网页控制功能)
+  - [4：启动网页端：](#4启动网页端)
+- [摇操臂控制](#摇操臂控制)
+  - [1,2 前两步参考网页控制](#12-前两步参考网页控制)
+  - [3 启动摇操臂脚本](#3-启动摇操臂脚本)
 - [GR00T-WholeBodyControl](#gr00t-wholebodycontrol)
   - [Table of Contents](#table-of-contents)
   - [GEAR-SONIC](#gear-sonic)
