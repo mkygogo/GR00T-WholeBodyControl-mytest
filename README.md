@@ -43,8 +43,12 @@ bash deploy.sh sim --input-type zmq_manager
 USB链接摇操臂，注意USB端口跟代码里是否一样，以及端口权限。  
 ## 1,2 前两步参考网页控制
 ## 3 启动摇操臂脚本  
-uv pip install dynamixel_sdk  
-python gear_sonic/scripts/mocap_teleop_server.py  
+第一次启动装一下舵机库：uv pip install dynamixel_sdk  
+source .venv_sim/bin/activate  
+硬件校准：python gear_sonic/scripts/calibrate_mocap_dual.py  
+根据提示获取校准数据，复制到：mocap_teleop_loco_server.py  
+最后运行：
+python gear_sonic/scripts/mocap_teleop_loco_server.py  
 
 <div align="center">
 
